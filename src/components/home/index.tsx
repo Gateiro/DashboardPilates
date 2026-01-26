@@ -4,7 +4,7 @@ import { NextClient } from "@/components/home/nextClients";
 
 export function HomePage() {
     return (
-        <div className="w-full min-h-screen bg-base-100 p-6 lg:p-8 space-y-6">
+        <div className="w-full min-h-screen bg-primary p-6 lg:p-8 space-y-6">
             
             <header className="flex flex-col gap-1 mt-14 mb-4">
                 <h1 className="text-3xl font-bold text-secondary">Dashboard</h1>

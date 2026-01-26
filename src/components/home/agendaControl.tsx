@@ -3,11 +3,10 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from 'lucide-react';
 import { theme } from '@/theme';
-import { agendaData } from '@/data/dashboard'; // Importamos os novos dados
+import { agendaData } from '@/data/dashboard';
 
 export function AgendaControl() {
     const [currentDate, setCurrentDate] = useState(new Date());
-    // Estado para o dia selecionado (Inicia com o dia de hoje)
     const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
 
     const handlePrevMonth = () => {

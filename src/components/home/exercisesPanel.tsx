@@ -24,7 +24,7 @@ export function ExercisesPanel() {
                             <div className="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
                                 <div 
                                     className={`h-full rounded-full transition-all duration-1000 ${exercise.color}`} 
-                                    style={{ width: `${exercise.progress}%` }} // Usamos style para largura dinâmica
+                                    style={{ width: `${exercise.progress}%` }}
                                 ></div>
                             </div>
                         </li>
