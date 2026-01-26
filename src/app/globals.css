@@ -1,47 +1,15 @@
-@import "tailwindcss";
-@source "../data";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@plugin "daisyui/theme" {
-  name: "studio-soft";
-  default: true;
-  prefersdark: false;
-  color-scheme: "light";
-  
-  /* Primária */
-  --color-primary: #6EC1E4; 
-  --color-primary-content: #FFFFFF;
-
-  /* Secundária */
-  --color-secondary: #9FD8C3;
-  --color-secondary-content: #333333;
-
-  /* Accent */
-  --color-accent: #E0BBE4;
-  --color-accent-content: #333333;
-
-  /* --- Fundos e preenchimento --- */
-  
-  /* base-100 */
-  --color-base-100: #F5F7FA; 
-  
-  /* base-200 */
-  --color-base-200: #FFFFFF;
-  
-  /* base-300 */
-  --color-base-300: #E2E8F0;
-  
-  /* Texto */
-  --color-base-content: #475569; 
-  --color-neutral: #64748B;
-
-  /* Configurações de Forma */
-  --radius-selector: 1rem;
-  --radius-field: 1rem;
-  --radius-box: 1.5rem;
+:root {
+  /* Define o fundo como um cinza azulado muito suave, melhor para os olhos que branco */
+  --background: #F8FAFC; 
+  --foreground: #1e293b;
 }
 
 body {
-  background-color: var(--color-base-100);
-  color: var(--color-base-content);
-  font-family: 'Geist Sans', Arial, sans-serif; 
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }

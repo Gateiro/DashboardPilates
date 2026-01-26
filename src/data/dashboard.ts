@@ -20,3 +20,11 @@ export const frequencyData = [
   { label: "16:00", height: "h-28", count: 15 },
   { label: "18:00", height: "h-36", count: 22 },
 ];
+
+export const agendaData = [
+    { date: "2026-01-26", time: "08:00", student: "Carla Dias", type: "Reformer" },
+    { date: "2026-01-26", time: "09:00", student: "Luís Figo", type: "Mat Pilates" },
+    { date: "2026-01-27", time: "10:00", student: "Ana Souza", type: "Cadillac" },
+    { date: "2026-01-27", time: "11:00", student: "Marcos Rocha", type: "Chair" },
+    
+];
