@@ -29,17 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-800 bg-background`}
       >
-        {/* Container Principal Flex */}
         <div className="flex min-h-screen">
           
-          {/* Barra Lateral (Esquerda) */}
           <Sidebar />
 
-          {/* Área de Conteúdo (Direita) */}
-          <div className="flex-1 flex flex-col relative min-h-screen bg-background">
+          <div className="flex-1 flex flex-col relative min-h-screen transition-all duration-300 w-full lg:ml-64">
             <Header />
             
-            {/* O main envolve o conteúdo da página */}
             <main className="flex-1">
               {children}
             </main>

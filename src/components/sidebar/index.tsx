@@ -2,21 +2,21 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { menuItems } from "@/utils/sidebar"; 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Sidebar() {
     const pathname = usePathname();
     const router = useRouter();
-
-    const isLoginPage = pathname === "/";
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        if (isLoginPage) {
-            return;
-        }
-    }, [isLoginPage, router]);
+        setMounted(true);
+    }, []);
 
-    if (isLoginPage) {
+    if (!mounted) return null;
+
+    
+    if (pathname === "/") {
         return null; 
     }
 
@@ -27,54 +27,70 @@ export function Sidebar() {
     };
 
     return (
-
-        <div data-theme="light" className="hidden lg:flex flex-col w-64 min-h-screen bg-base-100 gap-4 text-base-content shadow-lg">
+        // SIDEBAR FIXA
+        <aside className="hidden lg:flex flex-col w-64 min-h-screen bg-white border-r border-gray-200 fixed left-0 top-0 z-50">
             
             {/* Logo */}
-            <div className="flex items-center justify-center p-1 h-[100px] m-4">
-
-                <img src="/logo.png" alt="Logo Saúde em Foco" className="w-48" /> 
+            <div className="flex items-center justify-center h-24 border-b border-gray-100 mb-4">
+                <img src="/logo.png" alt="Logo" className="w-40 object-contain" /> 
             </div>
 
- 
-            <ul className="menu p-4 gap-2 ">
+            {/* Menu Principal */}
+            <nav className="flex-1 px-4 space-y-2 overflow-y-auto">
                 {menuItems.map((item) => {
-
-                    if (item.id < 7) {
+                    if (item.id < 7) { // Itens de cima
+                        const active = isSelected(item.path);
                         return (
-                            <li key={item.id} onClick={() => handleNavigate(item.path)}>
-
-                                <a className={isSelected(item.path) ? "active" : ""}>
-                                    {item.icon} 
-                                    <span>{item.text}</span>
-                                </a>
-                            </li>
-                        );
-                    }
-                    return null; 
-                })}
-            </ul>
-
-
-            <ul className="menu p-4">
-                <li className="menu-title">
-                    <span>Suporte & Config.</span>
-                </li>
-                
-                {menuItems.map((item) => {
-                    if (item.id > 6) {
-                        return (
-                            <li key={item.id} onClick={() => handleNavigate(item.path)}>
-                                <a className={isSelected(item.path) ? "active" : ""}>
+                            <button 
+                                key={item.id} 
+                                onClick={() => handleNavigate(item.path)}
+                                className={`w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 group
+                                    ${active 
+                                        ? 'bg-primary-10 text-primary shadow-sm' 
+                                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                    }`}
+                            >
+                                <span className={`transition-colors ${active ? 'text-primary' : 'text-gray-400 group-hover:text-gray-600'}`}>
                                     {item.icon}
-                                    <span>{item.text}</span>
-                                </a>
-                            </li>
+                                </span>
+                                <span className="ml-3 font-semibold">{item.text}</span>
+                            </button>
                         );
                     }
                     return null; 
                 })}
-            </ul>
-        </div>
+            </nav>
+
+            {/* Menu Inferior (Suporte) */}
+            <div className="p-4 mt-auto border-t border-gray-100">
+                <p className="px-4 text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+                    Sistema
+                </p>
+                <div className="space-y-1">
+                    {menuItems.map((item) => {
+                        if (item.id > 6) { 
+                            const active = isSelected(item.path);
+                            return (
+                                <button 
+                                    key={item.id} 
+                                    onClick={() => handleNavigate(item.path)}
+                                    className={`w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 group
+                                        ${active 
+                                            ? 'bg-primary-10 text-primary' 
+                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                        }`}
+                                >
+                                    <span className={`transition-colors ${active ? 'text-primary' : 'text-gray-400 group-hover:text-gray-600'}`}>
+                                        {item.icon}
+                                    </span>
+                                    <span className="ml-3 font-semibold">{item.text}</span>
+                                </button>
+                            );
+                        }
+                        return null; 
+                    })}
+                </div>
+            </div>
+        </aside>
     );
 }
