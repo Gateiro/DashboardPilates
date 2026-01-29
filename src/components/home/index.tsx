@@ -4,11 +4,10 @@ import { NextClient } from "@/components/home/nextClients";
 
 export function HomePage() {
     return (
-        <div className="w-full min-h-screen bg-primary p-6 lg:p-8 space-y-6">
+        <div className="w-full min-h-screen bg-white p-6 lg:p-8">
             
-            <header className="flex flex-col gap-1 mt-14 mb-4">
-                <h1 className="text-3xl font-bold text-secondary">Dashboard</h1>
-                <p className="text-gray-500 text-sm">Visão geral do Studio</p>
+            <header className="flex flex-col gap-1 mb-6">
+                <h1 className="text-3xl font-bold text-secondary">Visão Geral</h1>
             </header>
 
             {/* Grid Principal*/}
