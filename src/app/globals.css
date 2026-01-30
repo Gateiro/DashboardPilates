@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
-/* --- CONFIGURAÇÃO DO TEMA (V4) --- */
+/* --- CONFIGURAÇÃO DO TEMA --- */
 @theme {
-  /* Define as cores personalizadas diretamente aqui */
   
   /* Primary (Azul) */
   --color-primary: #6EC1E4;
